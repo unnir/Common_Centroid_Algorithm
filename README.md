@@ -11,5 +11,4 @@
 *an initial commit*
 
 
-[](Comment flow_chart.png =100x20)
 
