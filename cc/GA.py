@@ -1,8 +1,10 @@
 import datetime
-import numpy as np
-from eva import EvA
 from random import randint
+
+import numpy as np
 import timy
+
+from cc.eva import EvA
 
 # test target, remove it for the real work
 target = [1, 1, 1, 2, 2, 2, 3, 3, 3]
@@ -22,9 +24,9 @@ def GA_CC_fun(target, shape):
 
     def get_fitness(guess, shape):
         '''
-        :param guess: 
-        :param shape: 
-        :return: 
+        :param guess:  list
+        :param shape:  tuple or list
+        :return: float 
         '''
 
         return (EvA(np.array(guess), shape))
@@ -32,8 +34,8 @@ def GA_CC_fun(target, shape):
     def mutate(parent):
         '''
         
-        :param parent: 
-        :return: 
+        :param parent: list 
+        :return: list
         '''
         first = randint(0, len(parent) - 1)
         second = randint(0, len(parent) - 1)
@@ -45,8 +47,8 @@ def GA_CC_fun(target, shape):
     def display(guess):
         '''
         
-        :param guess: 
-        :return: 
+        :param guess: list
+        :return: None
         '''
         timeDiff = datetime.datetime.now() - startTime
         fitness = get_fitness(guess, shape)
