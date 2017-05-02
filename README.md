@@ -1,9 +1,11 @@
 ## Common Centroid Placement using Genetic Algorithm (GA) with Swap Mutation technique. 
 
-**cc.py** - Constuctive Algorithm 
+\cc\
 
-**eva.py** - Evaluation Algorithm 
+-----\**cc.py** - Constuctive Algorithm 
 
-**GA.py** - Genetic Algorithm (GA)
+-----\**eva.py** - Evaluation Algorithm 
+
+-----\**GA.py** - Genetic Algorithm (GA)
 
 *an initial commit*
