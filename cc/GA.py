@@ -72,7 +72,7 @@ def GA_CC_fun(target, shape):
     number_of_irr = 0
 
     # TODO optimize bellow
-    while True and number_of_irr != 40000:
+    while number_of_irr != 40000:
         number_of_irr += 1
         child = mutate(bestparent)
         numberofgenerations += 1
