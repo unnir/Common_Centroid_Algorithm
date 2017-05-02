@@ -8,7 +8,8 @@
     
     * **GA.py** - Genetic Algorithm (GA)
 
-*an initial commit*
+
+                                                 *an initial commit*
 
 
-![text](flow_chart.png)
+
