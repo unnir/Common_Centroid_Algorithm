@@ -11,4 +11,4 @@
 *an initial commit*
 
 
-![text](flow_chart.png)
+![minipic](flow_chart.png)
