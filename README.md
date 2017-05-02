@@ -11,9 +11,5 @@
 *an initial commit*
 
 
-![minipic](flow_chart.png)
+![](flow_chart.png =100x20)
 
-img[alt="minipic"] { 
-  max-width:  20px; 
-  display: block;
-}
