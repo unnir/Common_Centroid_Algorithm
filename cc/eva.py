@@ -54,7 +54,7 @@ def EvA(in_array, shape):
         TotalMisOffsCoefficient += abs(ii) + abs(jj)
     return TotalMisOffsCoefficient
 
-
+# test case
 L = [2,3,2,3,1,3,2,3,2]
 #L = [1,1,1,1]
 #L = []

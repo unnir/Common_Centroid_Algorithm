@@ -2,14 +2,15 @@ import math
 from itertools import zip_longest
 import timy
 
-@timy.timer(ident='EvA', loops=500) #ref time 0,000043
+
+@timy.timer(ident='EvA', loops=500) # ref time 0,000043
 def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 0, row_numbers = 0):
     '''
     (list, bool, str, int, int) -> list 
     
-    A constructive algorithm, for initial close to optimum solution. 
+    A constructive algorithm, for an initial close to optimum solution. 
     
-    :param in_device_list: input number of devices e.g. [1,2,3] == [1A, 2B, 3C]
+    :param in_device_list: list, input number of devices e.g. [1,2,3] == [1A, 2B, 3C]
     :param square_array: boolean 
     :param orientation: "ver" or "hor", ignored when square_array == True
     :param num_dummy_rows: int 
@@ -17,6 +18,8 @@ def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 
     :return: list
     '''
 
+
+    # TODO add possibility of shape control
     if num_dummy_rows == 0:
         pass
     else:
@@ -24,6 +27,8 @@ def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 
 
     def make_rows(L, Col):
         '''
+        (list, int) -> list
+        
         separate the input list L in sub-list
         :param L: list
         :param Col: int
@@ -33,12 +38,10 @@ def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 
         for i in range(0, len(L), Col):
             z += (L[i:i + Col],)
         return z
-    # Base cases
-    # check if the length of the in_device_list is 2, means we have two groups of elements.
+
     # exchange first and last element. Reason for a better symmetry.
-    if len(in_device_list) is 2:
-        if in_device_list[0] < in_device_list[1]:
-            in_device_list[0], in_device_list[1] = in_device_list[1], in_device_list[0]
+    if len(in_device_list) is 2 and in_device_list[0] < in_device_list[1]:
+        in_device_list[0], in_device_list[1] = in_device_list[1], in_device_list[0]
 
 
     '''
@@ -81,7 +84,7 @@ def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 
     # create a dict for rows
     rows = {}
 
-    for row_number, i_rows  in enumerate(transposed_array):
+    for row_number, i_rows in enumerate(transposed_array):
         # divide the row into two list right and left, selected each second element Fig. 2 (b) and (c)
         right = i_rows[::2]
         left = i_rows[1::2]
@@ -119,6 +122,7 @@ def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 
     if final_matrix[0] != final_matrix[len(final_matrix) - 1]:
         final_matrix.insert(0, final_matrix.pop(len(final_matrix) - 1))
 
+    # TODO remove transposed_array
     rotated = transposed_array = [[e for e in li if e is not None] for li in zip_longest(*final_matrix)]
 
     # check if row numbers is 0, it means a user hasn't define the row/col parameters
@@ -142,7 +146,7 @@ def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 
         # add from reverse function from (1,1,1,1,2,2,2,) to (4,3)
         return common_centroid(final_matrix, square_array=False, orientation="hor", num_dummy_rows=1, row_numbers=0)
 
-
+# test case
 print(common_centroid([2,4,8,16], square_array = True, orientation = "ver"))
 print(common_centroid([6,6,6,6,6,6], square_array = False, orientation = "ver"))
 print(common_centroid([1,1,1,1,1,1,1,1,1], square_array = True, orientation = "ver"))
