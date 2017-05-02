@@ -12,3 +12,8 @@
 
 
 ![minipic](flow_chart.png)
+
+img[alt="minipic"] { 
+  max-width:  20px; 
+  display: block;
+}
