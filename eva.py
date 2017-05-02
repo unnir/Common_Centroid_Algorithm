@@ -8,6 +8,7 @@ import cProfile
 def EvA(in_array, shape):
     """
     input(list,tuple) -> float
+    
     [Ev]aluation [A]lgorithm for Common-Centroid arrangements.
     Function returns Total Mismatch Offset Coefficient (TMOC).
     """

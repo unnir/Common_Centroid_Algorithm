@@ -4,7 +4,7 @@ from eva import EvA
 from random import randint
 import timy
 
-# test target
+# test target, remove it for the real work
 target = [1, 1, 1, 2, 2, 2, 3, 3, 3]
 
 # timy decorator for time measurement

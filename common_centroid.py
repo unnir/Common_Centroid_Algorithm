@@ -5,6 +5,8 @@ import timy
 @timy.timer(ident='EvA', loops=500) #ref time 0,000043
 def common_centroid(in_device_list, square_array, orientation, num_dummy_rows = 0, row_numbers = 0):
     '''
+    (list, bool, str, int, int) -> list 
+    
     A constructive algorithm, for initial close to optimum solution. 
     
     :param in_device_list: input number of devices e.g. [1,2,3] == [1A, 2B, 3C]
