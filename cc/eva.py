@@ -23,7 +23,7 @@ def EvA(in_array, shape):
 
     # convert a list to np.array
     in_array = np.array(in_array)
-    # reshape the input array accoring to the input shape
+    # reshape the input array according to the input shape
     in_array = in_array.reshape(shape)
     # find unique group names (numbers)
     unique_groups = np.unique(in_array)
