@@ -4,7 +4,7 @@ from random import randint
 import numpy as np
 import timy
 
-from src.eva import EvA
+from cc.eva import EvA
 
 # test target, remove it for the real work
 target = [1, 1, 1, 2, 2, 2, 3, 3, 3]
