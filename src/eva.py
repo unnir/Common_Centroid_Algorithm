@@ -1,6 +1,7 @@
 import numpy as np
 import timy
 import cProfile
+import unittest
 
 
 # reference time 0.000100
@@ -54,10 +55,18 @@ def EvA(in_array: object, shape: object) -> object:
         TotalMisOffsCoefficient += abs(ii) + abs(jj)
     return TotalMisOffsCoefficient
 
-# test case
-L = [2,3,2,3,1,3,2,3,2]
-#L = [1,1,1,1]
-#L = []
-print(EvA(L,(3,3)))
 
+
+# TODO optimize performance
 #cProfile.run('EvA(L,(3,3))')
+
+# test case
+if __name__ == '__main__':
+
+    class Test_construction_algorithm_symmetry(unittest.TestCase):
+        def test_construction_algorithm_symmetry(self):
+            L = [2, 3, 2, 3, 1, 3, 2, 3, 2]
+            self.assertEqual(EvA(L,(3,3)), 0.0)
+            L = [1,1,1,1]
+            self.assertEqual(EvA(L,(2,2)), 1.0)
+    unittest.main()

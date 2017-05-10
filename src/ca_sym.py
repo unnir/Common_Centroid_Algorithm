@@ -1,5 +1,8 @@
 import math
 from itertools import zip_longest
+
+# test packs
+import unittest
 import timy
 
 #@timy.timer(ident='EvA', loops=500) # ref time 0,000043
@@ -146,8 +149,30 @@ def construction_algorithm_symmetry(in_device_list, square_array, orientation, n
         return common_centroid(final_matrix, square_array=False, orientation="hor", num_dummy_rows=1, row_numbers=0)
 
 
-if __name__ == '__name__':
-    # test case
-    print(construction_algorithm_symmetry([2, 4, 8, 16], square_array=True, orientation="ver"))
-    print(construction_algorithm_symmetry([6, 6, 6, 6, 6, 6], square_array=False, orientation="ver"))
-    print(construction_algorithm_symmetry([1, 1, 1, 1, 1, 1, 1, 1, 1], square_array=True, orientation="ver"))
+if __name__ == '__main__':
+
+    class Test_construction_algorithm_symmetry(unittest.TestCase):
+        def test_construction_algorithm_symmetry(self):
+            self.assertEqual(construction_algorithm_symmetry([1, 1, 1, 1, 1, 1, 1, 1, 1], square_array=True, orientation="ver"),
+                             [[9, 6, 3],
+                              [7, 4, 1],
+                              [5, 2, 8]])
+
+            self.assertEqual(construction_algorithm_symmetry([2, 4, 8, 16], square_array=True, orientation="ver"),
+                             [[0, 4, 3, 2, 4, 4],
+                              [0, 4, 4, 3, 3, 1],
+                              [0, 4, 3, 1, 3, 4],
+                              [0, 4, 4, 4, 3, 2],
+                              [0, 4, 3, 2, 4, 4],
+                              [0, 4, 4, 4, 3, 2]])
+
+            self.assertEqual(construction_algorithm_symmetry([2, 4, 8, 16], square_array=True, orientation="ver"),
+                             [[0, 4, 3, 2, 4, 4],
+                              [0, 4, 4, 3, 3, 1],
+                              [0, 4, 3, 1, 3, 4],
+                              [0, 4, 4, 4, 3, 2],
+                              [0, 4, 3, 2, 4, 4],
+                              [0, 4, 4, 4, 3, 2]]
+                             )
+
+    unittest.main()

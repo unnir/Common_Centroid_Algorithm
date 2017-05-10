@@ -4,7 +4,7 @@ from random import randint
 import numpy as np
 import timy
 
-from cc.eva import EvA
+from src.eva import EvA
 
 # test target, remove it for the real work
 target = [1, 1, 1, 2, 2, 2, 3, 3, 3]
@@ -91,13 +91,12 @@ def ga_cc(target, shape):
         if bestFitness <= childFitness:
             continue
         display(child)
-
         if childFitness < wanted_tmoc:
             break
         bestFitness = childFitness
         bestparent = child
 
-    # TODO a new circle for the while loop with lower wanted TMO coef.
+    # TODO a new loop with lower wanted TMO coef.
 
     print("Number of generations:", numberofgenerations)
 
@@ -106,4 +105,5 @@ def ga_cc(target, shape):
     return bestparent
 
 
-print(ga_cc(target, (3, 3)))
+#print(ga_cc(target, (3, 3)))
+print(ga_cc([0,0,1,1], (2, 2)))
