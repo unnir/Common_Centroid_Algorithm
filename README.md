@@ -2,11 +2,13 @@
 
 * /cc/
 
-    * **cc.py** - Constuctive Algorithm 
+    * **cc_sym.py** - Constuctive Algorithm based on symmetry 
 
     * **eva.py** - Evaluation Algorithm 
     
-    * **GA.py** - Genetic Algorithm (GA)
+    * **ga.py** - Genetic Algorithm (GA)
+    
+    * **main.py** - together
 
 
                                                  *an initial commit*

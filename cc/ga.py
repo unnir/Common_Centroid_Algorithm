@@ -98,12 +98,11 @@ def ga_cc(target, shape):
 
     # TODO a new loop with lower wanted TMO coef.
 
-    print("Number of generations:", numberofgenerations)
+    #print("Number of generations:", numberofgenerations)
 
     bestparent = np.array(bestparent)
 
     return bestparent
 
-
+#print(ga_cc([1,1,2,0],(2,2)))
 #print(ga_cc(target, (3, 3)))
-print(ga_cc([0,0,1,1], (2, 2)))

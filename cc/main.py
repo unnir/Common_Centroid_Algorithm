@@ -18,12 +18,10 @@ def cc_main_flow(input_list, square_array, orientation = "ver", num_dummy_rows =
     ouput_from_ca = np.array(construction_algorithm_symmetry(input_list, square_array,
                                                     orientation, num_dummy_rows = 0, row_numbers = 0))
     if EvA(ouput_from_ca, ouput_from_ca.shape) != 0.0:
+        print("GA stars here")
         return ga_cc(ouput_from_ca, ouput_from_ca.shape)
     else:
         print("ELSE:")
         return ouput_from_ca
 
-
-
-
-print(cc_main_flow([1,2], True))
+print(cc_main_flow([4,4,1], True))
