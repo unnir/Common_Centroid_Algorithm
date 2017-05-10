@@ -4,8 +4,8 @@ import cProfile
 
 
 # reference time 0.000100
-@timy.timer(ident='EvA', loops=500)
-def EvA(in_array, shape):
+#@timy.timer(ident='EvA', loops=500)
+def EvA(in_array: object, shape: object) -> object:
     """
     input(list,tuple) -> float
     

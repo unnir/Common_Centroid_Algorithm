@@ -10,8 +10,8 @@ from cc.eva import EvA
 target = [1, 1, 1, 2, 2, 2, 3, 3, 3]
 
 # timy decorator for time measurement
-@timy.timer(ident='GA_CC_fun')
-def GA_CC_fun(target, shape):
+#@timy.timer(ident='GA_CC_fun')
+def ga_cc(target, shape):
     '''
     (list, tuple) -> list
     
@@ -24,6 +24,8 @@ def GA_CC_fun(target, shape):
 
     def get_fitness(guess, shape):
         '''
+        (list, list) -> float
+        
         :param guess:  list
         :param shape:  tuple or list
         :return: float 
@@ -33,6 +35,7 @@ def GA_CC_fun(target, shape):
 
     def mutate(parent):
         '''
+        (list) -> list
         
         :param parent: list 
         :return: list
@@ -46,14 +49,16 @@ def GA_CC_fun(target, shape):
 
     def display(guess):
         '''
+        (list) -> print function 
         
         :param guess: list
-        :return: None
+        :return: print function 
         '''
         timeDiff = datetime.datetime.now() - startTime
         fitness = get_fitness(guess, shape)
         print("{0}\t{1}\t{2}".format(guess, fitness, str(timeDiff)))
 
+    # start the clock times
     startTime = datetime.datetime.now()
 
     # best Parent is a target in the beginning
@@ -62,14 +67,20 @@ def GA_CC_fun(target, shape):
     # check initial TMO coefficient
     bestFitness = EvA(np.array(target), shape)
 
+    # print head for the
     print("Array \t\t\t\t\t\t\t\t\t\t\t Offset \t time")
 
+    # display the first result
     display(bestparent)
 
+    # set up number of generations
     numberofgenerations = 0
 
     # create a stop criteria
     number_of_irr = 0
+
+    # create min wanted TMO coefficient
+    wanted_tmoc = 0.5
 
     # TODO optimize bellow
     while number_of_irr != 40000:
@@ -80,10 +91,13 @@ def GA_CC_fun(target, shape):
         if bestFitness <= childFitness:
             continue
         display(child)
-        if childFitness < 1:
+
+        if childFitness < wanted_tmoc:
             break
         bestFitness = childFitness
         bestparent = child
+
+    # TODO a new circle for the while loop with lower wanted TMO coef.
 
     print("Number of generations:", numberofgenerations)
 
@@ -92,4 +106,4 @@ def GA_CC_fun(target, shape):
     return bestparent
 
 
-print(GA_CC_fun(target, (3, 3)))
+print(ga_cc(target, (3, 3)))
