@@ -5,7 +5,7 @@ from itertools import zip_longest
 import unittest
 import timy
 
-#@timy.timer(ident='EvA', loops=500) # ref time 0,000043
+#@timy.timer(ident='construction_algorithm_symmetry', loops=500) # ref time 0,000043
 def construction_algorithm_symmetry(in_device_list, square_array, orientation, num_dummy_rows = 0, row_numbers = 0):
     '''
     (list, bool, str, int, int) -> list 

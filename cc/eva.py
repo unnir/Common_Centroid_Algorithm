@@ -94,4 +94,7 @@ if __name__ == '__main__':
             L7 = [1,2,1,1]
             self.assertEqual(EvA(L7,(2,2)), 1.0)
 
+            L8 = [1,2,2,1]
+            self.assertEqual(EvA(L8,(2,2)), 0.0)
+
     unittest.main()

@@ -1,16 +1,16 @@
 import datetime
 from random import randint
-
 import numpy as np
-import timy
-
 from cc.eva import EvA
+
+import timy
+import unittest
 
 # test target, remove it for the real work
 target = [1, 1, 1, 2, 2, 2, 3, 3, 3]
 
 # timy decorator for time measurement
-#@timy.timer(ident='GA_CC_fun')
+#@timy.timer(ident='ga_cc')
 def ga_cc(target, shape):
     '''
     (list, tuple) -> list
@@ -102,7 +102,18 @@ def ga_cc(target, shape):
 
     bestparent = np.array(bestparent)
 
-    return bestparent
+    return bestparent.tolist()
 
-#print(ga_cc([1,1,2,0],(2,2)))
-#print(ga_cc(target, (3, 3)))
+
+if __name__ == '__main__':
+
+    class Test_ga_cc(unittest.TestCase):
+
+        def test_ga_cc(self):
+
+            L_in_1 =  [1,1,1,1,1,1,1,1,2]
+            L_out_1 = [1,1,1,1,2,1,1,1,1]
+            self.assertEqual(ga_cc(L_in_1,(3,3)),L_out_1)
+
+
+    unittest.main()
