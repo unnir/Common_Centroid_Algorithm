@@ -6,7 +6,7 @@
 
     * **eva.py** - Evaluation Algorithm 
     
-    * **ga.py** - Genetic Algorithm (GA) with the swap mutation teqnique 
+    * **ga.py** - Genetic Algorithm (GA) with the swap mutation technique 
     
     * **main.py** - The main script 
 
