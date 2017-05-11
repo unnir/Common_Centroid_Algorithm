@@ -6,9 +6,9 @@
 
     * **eva.py** - Evaluation Algorithm 
     
-    * **ga.py** - Genetic Algorithm (GA)
+    * **ga.py** - Genetic Algorithm (GA) with the swap mutation teqnique 
     
-    * **main.py** - together
+    * **main.py** - The main script 
 
 
                                                  *an initial commit*
