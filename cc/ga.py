@@ -81,13 +81,14 @@ def ga_cc(target, shape):
 
     # create min wanted TMO coefficient
     wanted_tmoc = 0.5
-
     # TODO optimize bellow
-    while number_of_irr != 40000:
+    while number_of_irr != 1000000:
         number_of_irr += 1
         child = mutate(bestparent)
+
         numberofgenerations += 1
         childFitness = get_fitness(child, shape)
+
         if bestFitness <= childFitness:
             continue
         display(child)
@@ -95,25 +96,18 @@ def ga_cc(target, shape):
             break
         bestFitness = childFitness
         bestparent = child
-
     # TODO a new loop with lower wanted TMO coef.
-
-    #print("Number of generations:", numberofgenerations)
-
     bestparent = np.array(bestparent)
 
     return bestparent.tolist()
 
+#print(ga_cc([1,1,2,2,3,3,4,4,5,5,6,6,7,7,7,7],(4,4)))
+
 
 if __name__ == '__main__':
-
     class Test_ga_cc(unittest.TestCase):
-
         def test_ga_cc(self):
-
             L_in_1 =  [1,1,1,1,1,1,1,1,2]
             L_out_1 = [1,1,1,1,2,1,1,1,1]
             self.assertEqual(ga_cc(L_in_1,(3,3)),L_out_1)
-
-
     unittest.main()

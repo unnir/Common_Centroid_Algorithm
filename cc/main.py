@@ -29,4 +29,4 @@ def cc_main_flow(input_list, square_array = True, orientation = "ver", num_dummy
         return ouput_from_ca
 
 
-print("Output: \t", cc_main_flow([1,2]))
+print("Output: \t", cc_main_flow([2,2]))
