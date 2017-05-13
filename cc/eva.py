@@ -30,10 +30,8 @@ def EvA(in_array: object, shape: object) -> object:
     # reshape the input array according to the input shape
     in_array = in_array.reshape(shape)
 
-
-
+    # find a center of the input array
     center_of_array = [shape[0]/2 -.5,shape[1]/2 -.5]
-    #center_of_array = ndimage.measurements.center_of_mass(in_array)
 
     # find unique group names (numbers)
     unique_groups, counts = np.unique(in_array, return_counts=True)
