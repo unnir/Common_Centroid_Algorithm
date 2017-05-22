@@ -56,7 +56,10 @@ def ga_cc(target, shape):
         '''
         timeDiff = datetime.datetime.now() - startTime
         fitness = get_fitness(guess, shape)
-        print("{0}\t{1}\t{2}".format(guess, fitness, str(timeDiff)))
+        print("{0}\t{1}\t{2}\t{3}".format(guess, fitness, str(timeDiff), number_of_irr))
+
+    # create a stop criteria
+    number_of_irr = 0
 
     # start the clock times
     startTime = datetime.datetime.now()
@@ -68,7 +71,7 @@ def ga_cc(target, shape):
     bestFitness = EvA(np.array(target), shape)
 
     # print head for the
-    print("Array \t\t\t\t\t\t\t\t\t\t\t Offset \t time")
+    print("Array \t\t\t\t Offset \t time \t\t Number of Generations")
 
     # display the first result
     display(bestparent)
@@ -76,13 +79,10 @@ def ga_cc(target, shape):
     # set up number of generations
     numberofgenerations = 0
 
-    # create a stop criteria
-    number_of_irr = 0
-
     # create min wanted TMO coefficient
     wanted_tmoc = 0.5
     # TODO optimize bellow
-    while number_of_irr != 1000000:
+    while number_of_irr != 10000:
         number_of_irr += 1
         child = mutate(bestparent)
 

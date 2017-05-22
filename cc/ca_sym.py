@@ -6,7 +6,7 @@ import unittest
 import timy
 
 #@timy.timer(ident='construction_algorithm_symmetry', loops=500) # ref time 0,000043
-def construction_algorithm_symmetry(in_device_list, square_array, orientation, num_dummy_rows = 0, row_numbers = 0):
+def construction_algorithm_symmetry(in_device_list, square_array = True, orientation = 'ver', num_dummy_rows = 0, row_numbers = 0):
     '''
     (list, bool, str, int, int) -> list 
     
@@ -124,8 +124,7 @@ def construction_algorithm_symmetry(in_device_list, square_array, orientation, n
     if final_matrix[0] != final_matrix[len(final_matrix) - 1]:
         final_matrix.insert(0, final_matrix.pop(len(final_matrix) - 1))
 
-    # TODO remove transposed_array
-    rotated = transposed_array = [[e for e in li if e is not None] for li in zip_longest(*final_matrix)]
+    rotated = [[e for e in li if e is not None] for li in zip_longest(*final_matrix)]
 
     # check if row numbers is 0, it means a user hasn't define the row/col parameters
     if row_numbers is 0:
@@ -143,10 +142,27 @@ def construction_algorithm_symmetry(in_device_list, square_array, orientation, n
             return final_matrix
 
         return final_matrix
-    # if row number is not 0, the function has change the order
     else:
-        # add from reverse function from (1,1,1,1,2,2,2,) to (4,3)
-        return common_centroid(final_matrix, square_array=False, orientation="hor", num_dummy_rows=1, row_numbers=0)
+        # base case if the wanted row number is 1
+        if row_numbers is 1:
+            # return a flat list
+            return sum(rotated, [])
+        elif len(rotated) is not row_numbers:
+            # flat the list
+            rotated = sum(rotated, [])
+            tot_number_of_elemetns = len(rotated)
+            if tot_number_of_elemetns % row_numbers is not 0:
+                # add dummy elements
+                old_len = len(rotated)
+                [rotated.append(0) for i in range(row_numbers - old_len % row_numbers)]
+
+                rotated = list(make_rows(rotated, int(len(rotated) / row_numbers)))
+                return rotated
+            else:
+                # make a new
+                return make_rows(rotated, tot_number_of_elemetns / row_numbers)
+        else:
+            return rotated
 
 
 if __name__ == '__main__':
@@ -173,4 +189,19 @@ if __name__ == '__main__':
                               [0, 4, 4, 4, 3, 2],
                               [0, 4, 3, 2, 4, 4],
                               [0, 4, 4, 4, 3, 2]])
+
+            self.assertEqual(construction_algorithm_symmetry([3,3,3], row_numbers = 3),
+                            [[3, 2, 3],
+                             [2, 1, 2],
+                             [1, 3, 1]])
+
+
+            self.assertEqual(construction_algorithm_symmetry([3,3,3], row_numbers = 4),
+                            [[3, 2, 3],
+                             [2, 1, 2],
+                             [1, 3, 1],
+                             [0, 0, 0]])
+
+            self.assertEqual(construction_algorithm_symmetry([3,3,3], row_numbers = 1),
+                            [3, 2, 3, 2, 1, 2, 1, 3, 1])
     unittest.main()

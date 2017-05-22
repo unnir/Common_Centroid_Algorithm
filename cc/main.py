@@ -20,13 +20,14 @@ def cc_main_flow(input_list, square_array = True, orientation = "ver", num_dummy
     :return: list
     '''
 
-
-    ouput_from_ca = np.array(construction_algorithm_symmetry(input_list, square_array,
-                                                    orientation, num_dummy_rows = 0, row_numbers = 0))
+    ouput_from_ca = np.array(construction_algorithm_symmetry(input_list, square_array = square_array,
+                                                    orientation = orientation, num_dummy_rows = num_dummy_rows, row_numbers = row_numbers))
     if EvA(ouput_from_ca, ouput_from_ca.shape) != 0.0:
+        print(ouput_from_ca.shape)
         return ga_cc(ouput_from_ca.flatten(), ouput_from_ca.shape)
     else:
         return ouput_from_ca
 
 
-print("Output: \t", cc_main_flow([2,2]))
+print("Output: \t", cc_main_flow([3,3,3], row_numbers = 10))
+
