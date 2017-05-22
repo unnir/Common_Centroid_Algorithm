@@ -1,4 +1,4 @@
-## Common Centroid Placement using Genetic Algorithm (GA) with Swap Mutation technique. 
+## Common Centroid Placement using Genetic Algorithm (GA) with the Swap Mutation Technique. 
 
 * /cc/
 
