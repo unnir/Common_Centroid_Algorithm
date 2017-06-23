@@ -4,7 +4,7 @@
 
     * **ca_sym.py** - Constuctive Algorithm based on symmetry 
     
-    * **ca_euclidean.py** - Constuctive Algorithm based on euclidian distance 
+    * **ca_euclidean.py** - Constuctive Algorithm based on euclidean distance 
 
     * **eva.py** - Evaluation Algorithm 
     

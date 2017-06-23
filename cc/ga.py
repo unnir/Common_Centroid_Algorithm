@@ -80,9 +80,9 @@ def ga_cc(target, shape):
     numberofgenerations = 0
 
     # create min wanted TMO coefficient
-    wanted_tmoc = 0.5
+    wanted_tmoc = 0.2
     # TODO optimize bellow
-    while number_of_irr != 10000:
+    while number_of_irr != 4000000:
         number_of_irr += 1
         child = mutate(bestparent)
 

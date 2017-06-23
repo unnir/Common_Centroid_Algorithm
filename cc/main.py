@@ -28,6 +28,8 @@ def cc_main_flow(input_list, square_array = True, orientation = "ver", num_dummy
     else:
         return ouput_from_ca
 
+# output = cc_main_flow(cc_main_flow([1,2,4,8,16]))
+print(cc_main_flow([8,8], row_numbers = 3))
 
-print("Output: \t", cc_main_flow([3,3,3], row_numbers = 10))
-
+#TODO: bug
+#print(cc_main_flow([8,8], row_numbers = 2))

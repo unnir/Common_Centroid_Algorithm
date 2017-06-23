@@ -53,6 +53,9 @@ def EvA(in_array: object, shape: object) -> object:
 # TODO optimize performance
 #cProfile.run('EvA(L,(3,3))')
 
+print(EvA([1,1,2,2,1,1,1,2,3,2,2,1,1,3,4,7,
+           2,1,1,2,6,5,3,1,1,2,2,3,2,1,
+           1,1,2,2,1,1],(6,6)))
 # test case
 if __name__ == '__main__':
 

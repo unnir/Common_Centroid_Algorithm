@@ -165,6 +165,7 @@ def construction_algorithm_symmetry(in_device_list, square_array = True, orienta
             return rotated
 
 
+
 if __name__ == '__main__':
 
     class Test_construction_algorithm_symmetry(unittest.TestCase):
